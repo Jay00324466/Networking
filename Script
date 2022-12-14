@@ -1,0 +1,32 @@
+#!/bin/sh
+#here we are going to add a bunch of things to this script. One after another 
+#IT is worth noting that every command in the script is run a second time for the purpose of it being 
+#appended to a file called NetworkInformation
+#We added echo just to give a brief description of what the output actually is 
+
+#Starting with ip addr. We are using this to simply, find the ip addresses on our server! 
+ip addr
+ip addr >> networkingscript
+
+echo "These are our ip addresses displayed above us"
+
+#next we we are using nslookup localhost for the mac addresses as well as domain names for our server
+
+nslookup localhost 
+nslookup localhost  >> networkingscript
+
+echo "Above is our nslookup output"
+
+#netstat will display all of our listening and open ports and then append it to the file 
+netstat -ano
+netstat -ano >> networkingscript
+
+echo "Above is our netstat output" 
+
+arp
+arp >> networkingscript
+echo "This is the arp command display that pairs up each ip address with a MAC physical address " 
+#Next We want to display the date and time this was opened and append 
+echo "This is the date and time this was accessed"
+date 
+date >> networkingscript
